@@ -1,0 +1,6 @@
+; Start macro: Heat bed and nozzle simultaneously
+M104 S150                                           ; Preheat nozzle to 150°C (non-blocking)
+M140 S[bed_temperature_initial_layer_single]        ; Set bed target temperature (non-blocking)
+M190 S[bed_temperature_initial_layer_single]        ; Wait for bed to reach target temperature
+M109 S150                                           ; Wait for nozzle to reach 150°C
+PRINT_START EXTRUDER=[nozzle_temperature_initial_layer] BED=[bed_temperature_initial_layer_single]
